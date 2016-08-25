@@ -17,16 +17,23 @@ public class Menu {
         System.out.println("Seleciona a opção: ");
         System.out.println("1- Cadastro equipamento");
         System.out.println("2- Listagem de equipamentos");
-        System.out.println("O que você deseja fazer?");
+        System.out.println("\nO que você deseja fazer?");
         
         Scanner entrada = new Scanner(System.in);
-        try{
-            int op = entrada.nextInt();
-            System.out.println("O usuario digitou "+op);
+        int op = 0;
+        do{    
+            try{
+                op = Integer.parseInt(entrada.nextLine());
+                System.out.println("O usuario digitou "+op);
+                break;
+
+            }catch(Exception e){
+                System.out.println("Nao deu certo, informe novamente.");
+            }
             
-        }catch(Exception e){
-            int op = entrada.nextInt();
-            System.out.println("Nao deu certo pq: "+e.getClass());
+        }while(op != 1 && op != 2);
+        if( op == 1 ){
+            Equipamento_Visao.exibirFormularioCadastroEquipamento();
         }
     }
 }
