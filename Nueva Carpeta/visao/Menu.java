@@ -24,7 +24,7 @@ public class Menu {
         do{    
             try{
                 op = Integer.parseInt(entrada.nextLine());
-                System.out.println("O usuario digitou "+op);
+                System.out.println("O usuario digitou "+op+"\n");
                 break;
 
             }catch(Exception e){
@@ -34,6 +34,9 @@ public class Menu {
         }while(op != 1 && op != 2);
         if( op == 1 ){
             Equipamento_Visao.exibirFormularioCadastroEquipamento();
+        }
+        if( op == 2 ){
+            Equipamento_Visao.exibirListagemEquipamentos();
         }
     }
 }

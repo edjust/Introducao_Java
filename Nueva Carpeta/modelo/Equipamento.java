@@ -6,6 +6,7 @@
 package modelo;
 
 import armazenamento.Meio_Armazenamento;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -16,11 +17,34 @@ public class Equipamento {
     private String nome, patrimonio;
     private Date dataAquisicao, dataTerminoGarantia;
     private float valor;
+    private ArrayList<Manutencao> listaManutencoes;
+    
+    public Equipamento(){
+        this.listaManutencoes = new ArrayList();
+    }
+    
+    
+    public static Equipamento obterPeloNumero(String numeroPatrimonio){
+        for( Equipamento objDaVez : Equipamento.obterLista() ){
+            if( objDaVez.getPatrimonio().equals(numeroPatrimonio) ){
+                return objDaVez;
+            }
+        }
+        return null;
+    }
+    
+    public static ArrayList<Equipamento> obterLista(){
+        return Meio_Armazenamento.MEIO_ARMAZENAMENTO_EQUIPAMENTOS;
+    }
     
     public void salvar(){
         Meio_Armazenamento.MEIO_ARMAZENAMENTO_EQUIPAMENTOS.add(this);
     }
-
+    
+    public ArrayList<Manutencao> getListManutencoes(){
+        return this.listaManutencoes;
+    }
+    
     /**
      * @return the nome
      */
