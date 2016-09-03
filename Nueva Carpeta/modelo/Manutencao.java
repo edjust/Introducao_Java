@@ -12,6 +12,7 @@ import java.util.Date;
  * @author Edgar
  */
 public class Manutencao {
+    
     private String descricao;
     private Date data;
     private float valor;

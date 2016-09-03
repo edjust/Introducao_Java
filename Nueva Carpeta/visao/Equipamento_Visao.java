@@ -85,7 +85,7 @@ public class Equipamento_Visao {
     
     public static void exibirListagemEquipamentos(){
         System.out.println("-----TELA LISTAGEM DE EQUIPAMENTOS-----");
-        System.out.println("Equipamento \t Data aquisição \t Nº Manutenções\n");
+        System.out.println("Equipamento \t Nº Patrimonio \t Data aquisição \t\t Nº Manutenções \t Gasto total em manutenções\n");
         
 //        ArrayList<Equipamento> lista = Equipamento_Controle.obterListaEquipamento();
 //       for( int i = 0; i < lista.size(); i++ ){
@@ -93,7 +93,7 @@ public class Equipamento_Visao {
 //        }
         
         for(Equipamento obj : Equipamento_Controle.obterListaEquipamento()){
-            System.out.println(obj.getNome()+" \t "+obj.getDataAquisicao()+" \t "+obj.getListManutencoes().size());
+            System.out.println(obj.getNome()+" \t\t "+obj.getPatrimonio()+" \t\t "+obj.getDataAquisicao()+" \t "+obj.getListManutencoes().size()+" \t\t\t "+obj.getTotalGastoManutencoes());
         }
         
         System.out.println("O que você deseja fazer ?");
@@ -112,7 +112,8 @@ public class Equipamento_Visao {
                 Menu.exibirMenu();
             
             }else{
-                
+                Manutencao_Visao.exibirFormularioManutencao(valorDigitado);
+                Menu.exibirMenu();
             }
         }
     }

@@ -45,6 +45,21 @@ public class Equipamento {
         return this.listaManutencoes;
     }
     
+    public void adicionaManutencao(Manutencao manutencao){
+        this.listaManutencoes.add(manutencao);
+    }
+    
+    public float getTotalGastoManutencoes(){
+        float total = 0;
+        
+        for(Manutencao atual : this.listaManutencoes){
+            total += atual.getValor();
+        }
+        
+        return total;
+    }
+    
+    
     /**
      * @return the nome
      */
