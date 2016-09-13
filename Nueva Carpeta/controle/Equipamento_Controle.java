@@ -8,6 +8,7 @@ package controle;
 import java.util.ArrayList;
 import java.util.Date;
 import modelo.Equipamento;
+import modelo.EquipamentoDao;
 
 /**
  *
@@ -22,15 +23,15 @@ public class Equipamento_Controle {
         objetoEquipamento.setDataAquisicao(dataAquisicao);
         objetoEquipamento.setDataTerminoGarantia(dataTerminoGarantia);
         objetoEquipamento.setValor(valor);
-        objetoEquipamento.salvar();
+        EquipamentoDao.salvar(objetoEquipamento);
     }
     
     public static ArrayList<Equipamento> obterListaEquipamento(){
-        return Equipamento.obterLista();
+        return EquipamentoDao.obterLista();
     }
     
     public static Equipamento obterEquipamentoPeloNumeroPatrimonio(String numeroPatrimonio){
-        return Equipamento.obterPeloNumero(numeroPatrimonio);
+        return EquipamentoDao.obterPeloNumero(numeroPatrimonio);
     }
     
 }

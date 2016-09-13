@@ -6,6 +6,11 @@
 package modelo;
 
 import armazenamento.Meio_Armazenamento;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -22,25 +27,7 @@ public class Equipamento {
     public Equipamento(){
         this.listaManutencoes = new ArrayList();
     }
-    
-    
-    public static Equipamento obterPeloNumero(String numeroPatrimonio){
-        for( Equipamento objDaVez : Equipamento.obterLista() ){
-            if( objDaVez.getPatrimonio().equals(numeroPatrimonio) ){
-                return objDaVez;
-            }
-        }
-        return null;
-    }
-    
-    public static ArrayList<Equipamento> obterLista(){
-        return Meio_Armazenamento.MEIO_ARMAZENAMENTO_EQUIPAMENTOS;
-    }
-    
-    public void salvar(){
-        Meio_Armazenamento.MEIO_ARMAZENAMENTO_EQUIPAMENTOS.add(this);
-    }
-    
+        
     public ArrayList<Manutencao> getListManutencoes(){
         return this.listaManutencoes;
     }

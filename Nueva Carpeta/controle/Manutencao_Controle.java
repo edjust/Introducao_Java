@@ -7,6 +7,7 @@ package controle;
 
 import java.util.Date;
 import modelo.Equipamento;
+import modelo.EquipamentoDao;
 import modelo.Manutencao;
 
 /**
@@ -15,7 +16,7 @@ import modelo.Manutencao;
  */
 public class Manutencao_Controle {
     public static void receberDadosNovaManutencao(String numeroPatrimonio, String descricao, Date data, float valor){
-        Equipamento encontrado = Equipamento.obterPeloNumero(numeroPatrimonio);
+        Equipamento encontrado = EquipamentoDao.obterPeloNumero(numeroPatrimonio);
         Manutencao novaManutencao = new Manutencao();
         novaManutencao.setData(data);
         novaManutencao.setDescricao(descricao);
